@@ -35,7 +35,9 @@ jobs:
 
       - name: Unit + integration + Geb functional tests
         working-directory: ${{ matrix.app }}
-        run: ./gradlew test integrationTest --console=plain --stacktrace
+        run: |
+          chmod +x gradlew
+          ./gradlew test integrationTest --console=plain --stacktrace
 
       - name: Upload test reports
         if: always()
